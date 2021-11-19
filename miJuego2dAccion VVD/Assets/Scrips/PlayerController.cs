@@ -39,8 +39,8 @@ public class PlayerController : MonoBehaviour
 	public int maxHealth = 100;
 	public int currentHealth;
 	public HealthBar healthBar;
-
-
+	//some other external items 
+	public float jumPadForceJump = 10f;
 
 
 
@@ -270,5 +270,11 @@ public class PlayerController : MonoBehaviour
 		transform.localScale = new Vector3(localScaleX, transform.localScale.y, transform.localScale.z);
 	}
 
+
+	//externernal codes for extra movement items etc
+	public void jumPadForce()
+    {
+		_rigidbody.velocity = Vector2.up * jumPadForceJump;
+	}
 	
 }
