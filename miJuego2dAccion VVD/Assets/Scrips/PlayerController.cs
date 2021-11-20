@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
 	public float jumPadForceJump = 10f;
 	//messages
 	public GameObject noEnergyMessage;
+	
 
 
 
@@ -111,6 +112,7 @@ public class PlayerController : MonoBehaviour
 			// Flip character
 			if (horizontalInput < 0f && _facingRight == true)
 			{
+				
 				Flip();
 			}
 			else if (horizontalInput > 0f && _facingRight == false)

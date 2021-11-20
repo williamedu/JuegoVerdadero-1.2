@@ -5,7 +5,8 @@ using UnityEngine;
 public class noEnergy : MonoBehaviour
 {
 
-
+    public Transform objectToFollow;
+    public Vector3 offset;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,11 +17,11 @@ public class noEnergy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.position = objectToFollow.position + offset;
     }
 
     public void NoEnergy()
     {
-        this.gameObject.SetActive(true);
+        //this.gameObject.SetActive(true);
     }
 }
