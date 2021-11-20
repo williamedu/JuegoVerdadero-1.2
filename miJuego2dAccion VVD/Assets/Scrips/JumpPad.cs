@@ -36,7 +36,7 @@ public class JumpPad : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             
-            GetComponent<Animator>().SetBool("Idle",true);
+            //GetComponent<Animator>().SetBool("Idle",true);
 
             //m_Animator.SetTrigger("jumpPadAnimation");
         }

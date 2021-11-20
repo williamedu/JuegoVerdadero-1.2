@@ -154,7 +154,8 @@ public class PlayerController : MonoBehaviour
 		
 			if (Input.GetButtonDown("Fire1") && _isGrounded == true && _isAttacking == false && running == false)
 			{
-			    //Attack();
+			//Attack();
+			StaminaBar.instance.UseStamina(15);
 				inputReceived = true;
 				canReceiveInput = false;
 
