@@ -42,6 +42,8 @@ public class PlayerController : MonoBehaviour
 	public HealthBar healthBar;
 	//some other external items 
 	public float jumPadForceJump = 10f;
+	//messages
+	public GameObject noEnergyMessage;
 
 
 
@@ -59,8 +61,8 @@ public class PlayerController : MonoBehaviour
 
 	void Start()
     {
-		currentHealth = maxHealth;
-		healthBar.SetMaxHealth(maxHealth);
+		//currentHealth = maxHealth;
+		//healthBar.SetMaxHealth(maxHealth);
     }
 
 	public void TakeDamage (int damage)
@@ -155,8 +157,8 @@ public class PlayerController : MonoBehaviour
 		
 			if (Input.GetButtonDown("Fire1") && _isGrounded == true && _isAttacking == false && running == false && canAttackAnim == true)
 			{
-			//Attack();
-			StaminaBar.instance.UseStamina(15);
+				//Attack();
+				StaminaBar.instance.UseStamina(15);
 				inputReceived = true;
 				canReceiveInput = false;
 
@@ -169,8 +171,16 @@ public class PlayerController : MonoBehaviour
 
 
 			}
-		
-			
+			// to display no energy message
+
+		if (Input.GetButtonDown("Fire1") && _isGrounded == true && _isAttacking == false && running == false && canAttackAnim == false)
+		{
+
+			noEnergyMessage.SetActive(true);
+
+		}
+
+
 		if (_animator.GetCurrentAnimatorStateInfo(0).IsTag("Running"))
         {
 			running = true;

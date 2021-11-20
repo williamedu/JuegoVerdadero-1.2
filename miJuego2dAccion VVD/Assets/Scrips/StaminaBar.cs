@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class StaminaBar : MonoBehaviour
 {
+    public GameObject noEnergy;
     public Slider staminaBar;
     private int maxStamina = 100;
     private int currentStamina;
@@ -70,10 +71,12 @@ public class StaminaBar : MonoBehaviour
         if (currentStamina >= 20)
         {
             GetComponent<Animator>().SetBool("BarEffect", false);
+            noEnergy.SetActive(false);
             //attackEnable();
             //GetComponent<Animator>().SetBool("NormalEnergy", true);
             //GetComponent<Animator>().SetBool("BarEffect", false);
             GameObject.Find("MainCharacter").GetComponent<PlayerController>().canAttackAnim = true;
+            //GameObject.Find("noEnergy").GetComponent<noEnergy>().
 
 
         }
