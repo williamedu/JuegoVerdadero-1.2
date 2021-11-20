@@ -73,7 +73,7 @@ public class StaminaBar : MonoBehaviour
             //attackEnable();
             //GetComponent<Animator>().SetBool("NormalEnergy", true);
             //GetComponent<Animator>().SetBool("BarEffect", false);
-            //GameObject.Find("PrototypeHero").GetComponent<PrototypeHero>().canAttackAnim = true;
+            GameObject.Find("MainCharacter").GetComponent<PlayerController>().canAttackAnim = true;
 
 
         }
@@ -83,7 +83,8 @@ public class StaminaBar : MonoBehaviour
             
             //GetComponent<Animator>().SetBool("NormalEnergy", false);
              GetComponent<Animator>().SetBool("BarEffect", true);
-            // GameObject.Find("PrototypeHero").GetComponent<PrototypeHero>().canAttackAnim = false;
+            GameObject.Find("MainCharacter").GetComponent<PlayerController>().canAttackAnim = false;
+            
             //attackDisable();
             //GameObject.Find("Sprite").GetComponent<PlayerCombat>().enabled = true;
 

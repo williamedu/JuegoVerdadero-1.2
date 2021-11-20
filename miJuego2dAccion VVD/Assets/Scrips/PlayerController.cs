@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
 	private bool _canDoubleJump;
 	public bool running;
 	//Attacks
+	public bool canAttackAnim;
 	public bool canReceiveInput;
 	public bool inputReceived;
 	public Transform AttackPoint;
@@ -152,7 +153,7 @@ public class PlayerController : MonoBehaviour
 
 		// Wanna Attack?
 		
-			if (Input.GetButtonDown("Fire1") && _isGrounded == true && _isAttacking == false && running == false)
+			if (Input.GetButtonDown("Fire1") && _isGrounded == true && _isAttacking == false && running == false && canAttackAnim == true)
 			{
 			//Attack();
 			StaminaBar.instance.UseStamina(15);
