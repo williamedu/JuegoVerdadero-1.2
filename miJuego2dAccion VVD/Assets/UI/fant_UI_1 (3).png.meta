@@ -1,0 +1,468 @@
+fileFormatVersion: 2
+guid: c2c52dfe34ea47848880eb073415e5b3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7121001101406270602
+    second: fant_UI_1 (3)_0
+  - first:
+      213: 249784516398235542
+    second: fant_UI_1 (3)_1
+  - first:
+      213: 3143349877618937108
+    second: fant_UI_1 (3)_2
+  - first:
+      213: -7052235976041220193
+    second: fant_UI_1 (3)_3
+  - first:
+      213: 8910447951005401532
+    second: fant_UI_1 (3)_4
+  - first:
+      213: -7082740579451916406
+    second: fant_UI_1 (3)_5
+  - first:
+      213: 6666905331114651472
+    second: fant_UI_1 (3)_6
+  - first:
+      213: 8590514041643921444
+    second: fant_UI_1 (3)_7
+  - first:
+      213: -4591840002890805366
+    second: fant_UI_1 (3)_8
+  - first:
+      213: 2547874719721558106
+    second: fant_UI_1 (3)_9
+  - first:
+      213: 3361415982574771263
+    second: fant_UI_1 (3)_10
+  - first:
+      213: 5430536178994316706
+    second: fant_UI_1 (3)_11
+  - first:
+      213: 924959233671009228
+    second: fant_UI_1 (3)_12
+  - first:
+      213: -3445973359919864645
+    second: fant_UI_1 (3)_13
+  - first:
+      213: -8122442779986640517
+    second: fant_UI_1 (3)_14
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 2
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: fant_UI_1 (3)_0
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 768
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a847c76e5c0e2d260800000000000000
+      internalID: 7121001101406270602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fant_UI_1 (3)_1
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 782
+        width: 276
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69f3f4ab1b9677300800000000000000
+      internalID: 249784516398235542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fant_UI_1 (3)_2
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 668
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41d8e3c3f0c6f9b20800000000000000
+      internalID: 3143349877618937108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fant_UI_1 (3)_3
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 682
+        width: 276
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9735df7ebc612e90800000000000000
+      internalID: -7052235976041220193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fant_UI_1 (3)_4
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 568
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb1c84da33548ab70800000000000000
+      internalID: 8910447951005401532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fant_UI_1 (3)_5
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 582
+        width: 276
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8f268d08fc05bd90800000000000000
+      internalID: -7082740579451916406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fant_UI_1 (3)_6
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 536
+        width: 389
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05f2f3c631b958c50800000000000000
+      internalID: 6666905331114651472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fant_UI_1 (3)_7
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 486
+        width: 237
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 420f032a103a73770800000000000000
+      internalID: 8590514041643921444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fant_UI_1 (3)_8
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 439
+        width: 234
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8fc34298d18640c0800000000000000
+      internalID: -4591840002890805366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fant_UI_1 (3)_9
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 386
+        width: 237
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a509331fe8edb5320800000000000000
+      internalID: 2547874719721558106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fant_UI_1 (3)_10
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 403
+        width: 234
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3c90bfc60626ae20800000000000000
+      internalID: 3361415982574771263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fant_UI_1 (3)_11
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 357
+        width: 234
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a50dd0f1e32d5b40800000000000000
+      internalID: 5430536178994316706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fant_UI_1 (3)_12
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 331
+        width: 225
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc39daab58d16dc00800000000000000
+      internalID: 924959233671009228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fant_UI_1 (3)_13
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 286
+        width: 237
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb464889c717d20d0800000000000000
+      internalID: -3445973359919864645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fant_UI_1 (3)_14
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 307
+        width: 225
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b71c57e7359474f80800000000000000
+      internalID: -8122442779986640517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
