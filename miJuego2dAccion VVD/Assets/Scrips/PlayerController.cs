@@ -66,12 +66,17 @@ public class PlayerController : MonoBehaviour
 		//healthBar.SetMaxHealth(maxHealth);
     }
 
+	public void hurtAnimation()
+    {
+		_animator.SetTrigger("Hurt");
+	}
 	public void TakeDamage (int damage)
     {
-		currentHealth -= damage;
+		
+		//currentHealth -= damage;
 
-		healthBar.SetHealth(currentHealth);
-    }
+		//healthBar.SetHealth(currentHealth);
+	}
 
 	//daño de enemigos
 	public void borracho()

@@ -126,10 +126,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 48
+        width: 110
         height: 48
       alignment: 9
-      pivot: {x: 0.3125, y: 0.45833334}
+      pivot: {x: 0.48181817, y: 0.41666666}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -145,12 +145,12 @@ TextureImporter:
       name: Cyborg_hurt_1
       rect:
         serializedVersion: 2
-        x: 48
+        x: 110
         y: 0
-        width: 48
+        width: 110
         height: 48
       alignment: 9
-      pivot: {x: 0.3125, y: 0.45833334}
+      pivot: {x: 0.48181817, y: 0.41666666}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

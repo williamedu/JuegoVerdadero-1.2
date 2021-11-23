@@ -10,6 +10,7 @@ public class HitEnemigo : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            player.hurtAnimation();
             health.TakeDamage(Random.Range(8, 15));
             
         }
