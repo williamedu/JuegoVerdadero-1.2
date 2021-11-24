@@ -1,25 +1,16 @@
 fileFormatVersion: 2
-guid: 8fba948d43d7a184aacb5f2d9dc57aa2
+guid: d64d983963bdf9749a95964143f5ed2e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5285832781791994864
-    second: Cyborg_Shield_0
+      213: 5320291189865927925
+    second: Cyborg_ShieldUp_0
   - first:
-      213: 4248500122006249973
-    second: Cyborg_Shield_1
+      213: 8315003860770676856
+    second: Cyborg_ShieldUp_1
   - first:
-      213: -6401348709914830850
-    second: Cyborg_Shield_2
-  - first:
-      213: 3844164163182545439
-    second: Cyborg_Shield_3
-  - first:
-      213: -475406016994682584
-    second: Cyborg_Shield_4
-  - first:
-      213: -820381691614292885
-    second: Cyborg_Shield_5
+      213: 9057134869032642049
+    second: Cyborg_ShieldUp_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -109,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cyborg_Shield_0
+      name: Cyborg_ShieldUp_0
       rect:
         serializedVersion: 2
         x: 0
@@ -123,14 +114,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01c5c2b2713f4a6b0800000000000000
-      internalID: -5285832781791994864
+      spriteID: 5f4599926a875d940800000000000000
+      internalID: 5320291189865927925
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cyborg_Shield_1
+      name: Cyborg_ShieldUp_1
       rect:
         serializedVersion: 2
         x: 110
@@ -144,14 +135,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f1e268f954b5fa30800000000000000
-      internalID: 4248500122006249973
+      spriteID: 870ec33e4f3d46370800000000000000
+      internalID: 8315003860770676856
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cyborg_Shield_2
+      name: Cyborg_ShieldUp_2
       rect:
         serializedVersion: 2
         x: 220
@@ -165,71 +156,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef71f1e9347d927a0800000000000000
-      internalID: -6401348709914830850
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cyborg_Shield_3
-      rect:
-        serializedVersion: 2
-        x: 330
-        y: 0
-        width: 110
-        height: 48
-      alignment: 9
-      pivot: {x: 0.48181817, y: 0.41666666}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f1a48cc60f6395530800000000000000
-      internalID: 3844164163182545439
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cyborg_Shield_4
-      rect:
-        serializedVersion: 2
-        x: 440
-        y: 0
-        width: 110
-        height: 48
-      alignment: 9
-      pivot: {x: 0.48181817, y: 0.41666666}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 829d2f01fb40769f0800000000000000
-      internalID: -475406016994682584
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cyborg_Shield_5
-      rect:
-        serializedVersion: 2
-        x: 550
-        y: 0
-        width: 110
-        height: 48
-      alignment: 9
-      pivot: {x: 0.48181817, y: 0.41666666}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b649813b23b6d94f0800000000000000
-      internalID: -820381691614292885
+      spriteID: 106ae773d2861bd70800000000000000
+      internalID: 9057134869032642049
       vertices: []
       indices: 
       edges: []

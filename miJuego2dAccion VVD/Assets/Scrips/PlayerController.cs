@@ -103,8 +103,19 @@ public class PlayerController : MonoBehaviour
 
 	void Update()
 	{
-		
-       
+		// animacion para sacar shield
+		if(Input.GetKeyDown(KeyCode.S) && _isGrounded == true && _isAttacking == false && running == false)
+		{
+			_animator.SetTrigger("shieldStart");
+			
+		}
+		if (Input.GetKeyUp(KeyCode.S) && _isGrounded == true && _isAttacking == false && running == false)
+		{
+			
+
+			_animator.SetTrigger("backToIdle");
+		}
+
 		if (_isAttacking == false)
 		{
 			// Movement
