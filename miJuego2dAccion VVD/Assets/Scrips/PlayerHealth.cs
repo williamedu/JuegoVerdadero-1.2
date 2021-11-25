@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 
 
 
@@ -18,17 +18,24 @@ public class PlayerHealth : MonoBehaviour
     private float lerpTimer;
     public float maxHealth = 100;
     public float chipSpeed = 2f;
+    [SerializeField]
+    private TextMeshProUGUI healthText;
     
     
     // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
+        
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        healthText.text = health.ToString();
+
+
         health = Mathf.Clamp(health, 0, maxHealth);
         UpdateHealthUI();
         //if (Input.GetKeyDown(KeyCode.Space))
@@ -75,11 +82,15 @@ public class PlayerHealth : MonoBehaviour
     {
         health -= damage;
         lerpTimer = 0f;
+        healthText.text = maxHealth.ToString();
+
     }
     public void RestoreHealth(float healAmount)
     {
         health += healAmount;
         lerpTimer = 0f;
+        healthText.text = maxHealth.ToString();
+
     }
 
 }
