@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
 	private bool _facingRight = true;
 	private bool _isGrounded;
 	private bool _canDoubleJump;
+	public bool canMove = true;
 	public bool running;
 	//Attacks
 	public bool canAttackAnim;
@@ -103,20 +104,9 @@ public class PlayerController : MonoBehaviour
 
 	void Update()
 	{
-		// animacion para sacar shield
-		if(Input.GetKeyDown(KeyCode.S) && _isGrounded == true && _isAttacking == false && running == false)
-		{
-			_animator.SetTrigger("shieldStart");
-			
-		}
-		if (Input.GetKeyUp(KeyCode.S) && _isGrounded == true && _isAttacking == false && running == false)
-		{
-			
+		
 
-			_animator.SetTrigger("backToIdle");
-		}
-
-		if (_isAttacking == false)
+		if (_isAttacking == false && canMove == true)
 		{
 			// Movement
 			float horizontalInput = Input.GetAxisRaw("Horizontal");
@@ -136,7 +126,19 @@ public class PlayerController : MonoBehaviour
 				Flip();
 			}
 		}
+		// animacion para sacar shield
+		if (Input.GetKeyDown(KeyCode.S) && _isGrounded == true && _isAttacking == false && running == false)
+		{
+			canMove = false;
+			_animator.SetTrigger("shieldStart");
 
+		}
+		if (Input.GetKeyUp(KeyCode.S) && _isGrounded == true && _isAttacking == false && running == false)
+		{
+
+			canMove = true;
+			_animator.SetTrigger("backToIdle");
+		}
 		// Is Grounded?
 		_isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
@@ -175,8 +177,8 @@ public class PlayerController : MonoBehaviour
 		
 			if (Input.GetButtonDown("Fire1") && _isGrounded == true && _isAttacking == false && running == false && canAttackAnim == true)
 			{
-				//Attack();
-				
+			//Attack();
+			
 				inputReceived = true;
 				canReceiveInput = false;
 
