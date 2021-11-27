@@ -27,12 +27,18 @@ public class rangoShooter : MonoBehaviour
             ani.SetBool("run", false);
             ani.SetBool("attack", true);
             shooter.atacando = true;
-            GetComponent<BoxCollider2D>().enabled = false;
+            //shooter.speed_run = 0f;
+            //shooter.speed_walk = 0f;
+            //GetComponent<BoxCollider2D>().enabled = false;
             //Invoke("playAttackAnim", 0.25f);
-
+               
             
-                  
-            
+        }
+        else
+        {
+            //shooter.speed_run = 2f;
+            //shooter.speed_walk = 1.5f;
+           //shooter.atacando = false;
         }
     }
 
@@ -40,7 +46,7 @@ public class rangoShooter : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            //shooter.atacando = false;
+            shooter.atacando = false;
             //ani.SetBool("attack", false);
         }
         

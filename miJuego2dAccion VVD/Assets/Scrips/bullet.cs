@@ -4,13 +4,24 @@ using UnityEngine;
 
 public class bullet : MonoBehaviour
 {
+    public PlayerHealth health;
+    public PlayerController player;
+    public GameObject healthReduction;
+    public GameObject hurtAnim;
     float moveSpeed = 7f;
 
     Rigidbody2D rb;
 
     public Transform target;
     Vector2 moveDirection;
-
+    private void Awake()
+    {   //code to set reference of damage
+        healthReduction = GameObject.Find("MainCharacter");
+        health = healthReduction.GetComponent<PlayerHealth>();
+        //code to set reference of hurt animation
+        hurtAnim = GameObject.Find("MainCharacter");
+        player = hurtAnim.GetComponent<PlayerController>();
+    }
     // Use this for initialization
     void Start()
     {
@@ -27,7 +38,12 @@ public class bullet : MonoBehaviour
         {
             Debug.Log("Hit!");
             Destroy(gameObject);
+            health.TakeDamage(Random.Range(15, 25));
+            player.hurtAnimation();
+            
+           
         }
     }
-
+   
+    
 }
