@@ -92,8 +92,12 @@ public class PlayerController : MonoBehaviour
 
 		foreach (Collider2D enemy in hitenemies)
 		{
+			Debug.Log("we hit" + enemy.name);
 			enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+			enemy.GetComponent<shooterEnemy>().TakeDamage(attackDamage);
 		}
+
+		
 	}
 	private void OnDrawGizmosSelected()
 	{
