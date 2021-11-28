@@ -29,7 +29,7 @@ public class bullet : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Player").transform;
         moveDirection = (target.transform.position - transform.position).normalized * moveSpeed;
         rb.velocity = new Vector2(moveDirection.x, moveDirection.y);
-        Destroy(gameObject, 3f);
+        Destroy(gameObject, 5f);
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -40,10 +40,14 @@ public class bullet : MonoBehaviour
             Destroy(gameObject);
             health.TakeDamage(Random.Range(15, 25));
             player.hurtAnimation();
-            
-           
         }
+
+        if (col.gameObject.name.Equals("shield"))
+        {
+            Debug.Log("shield!");
+            Destroy(gameObject);
+        }
+       
     }
-   
     
 }
