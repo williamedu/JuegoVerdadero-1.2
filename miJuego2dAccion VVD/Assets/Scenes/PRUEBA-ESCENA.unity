@@ -11658,7 +11658,6 @@ MonoBehaviour:
   rango_ataque: 0
   rango: {fileID: 0}
   Hit: {fileID: 0}
-  maxHealth: 100
   bullet: {fileID: 0}
   firePoint: {fileID: 0}
 --- !u!1 &1375815889
@@ -12895,6 +12894,30 @@ Transform:
   m_Father: {fileID: 320993271}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1595756957 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8871168871034509016, guid: 4ec61488b32349347a329b5b3b6cc5fc, type: 3}
+  m_PrefabInstance: {fileID: 8871168871475312983}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1595756961 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8871168871034508997, guid: 4ec61488b32349347a329b5b3b6cc5fc, type: 3}
+  m_PrefabInstance: {fileID: 8871168871475312983}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1595756964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595756957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff7987668bc158f49aaa7f6e89ccf900, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 200
+  ani: {fileID: 1595756961}
 --- !u!1 &1658899764
 GameObject:
   m_ObjectHideFlags: 0
@@ -16405,6 +16428,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bc9724e7a579a046866c9bae2a4c5ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1980696427 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7945770988181207881, guid: 012053b8a8b45b34daf5ad5744391281, type: 3}
+  m_PrefabInstance: {fileID: 7945770988174480203}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1980696430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980696423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff7987668bc158f49aaa7f6e89ccf900, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 200
+  ani: {fileID: 1980696427}
 --- !u!1 &1993413357
 GameObject:
   m_ObjectHideFlags: 0
@@ -17292,6 +17334,10 @@ PrefabInstance:
     - target: {fileID: 8871168871034509016, guid: 4ec61488b32349347a329b5b3b6cc5fc, type: 3}
       propertyPath: m_Name
       value: barrirDisparador
+      objectReference: {fileID: 0}
+    - target: {fileID: 8871168871034509016, guid: 4ec61488b32349347a329b5b3b6cc5fc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ec61488b32349347a329b5b3b6cc5fc, type: 3}

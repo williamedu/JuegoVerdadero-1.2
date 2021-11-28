@@ -19,8 +19,8 @@ public class shooterEnemy : MonoBehaviour
     public GameObject Hit;
 
     //healt
-    public int maxHealth = 100;
-    int currentHealth;
+    //public int maxHealth = 100;
+    //int currentHealth;
     
     // to shoot
     [SerializeField]
@@ -39,7 +39,7 @@ public class shooterEnemy : MonoBehaviour
         fireRate = 1f;
         nextFire = Time.time;
 
-        currentHealth = maxHealth;
+        //currentHealth = maxHealth;
         ani = GetComponent<Animator>();
         target = GameObject.Find("MainCharacter");
     }
@@ -50,30 +50,30 @@ public class shooterEnemy : MonoBehaviour
         Comportamientos();
     }
 
-    public void TakeDamage(int damage)
-    {
-        currentHealth -= damage;
+   // public void TakeDamage(int damage)
+   // {
+        //currentHealth -= damage;
 
         //hurt animation
-        ani.SetTrigger("Hurt");
+        //ani.SetTrigger("Hurt");
 
-        if (currentHealth <= 0)
-        {
-            Die();
+       // if (currentHealth <= 0)
+        //{
+           // Die();
 
 
-        }
+       // }
 
-    }
-    public void Die()
-    {
-        Debug.Log("enemy died");
+    //}
+    //public void Die()
+    //{
+        //Debug.Log("enemy died");
         //die animation
-        ani.SetBool("isDead", true);
+        //ani.SetBool("isDead", true);
         //disable enemy
-        GetComponent<Collider2D>().enabled = false;
-        this.enabled = false;
-    }
+        //GetComponent<Collider2D>().enabled = false;
+        //this.enabled = false;
+   // }
     public void Comportamientos()
     {
         // si no esta en tu campo de vision
