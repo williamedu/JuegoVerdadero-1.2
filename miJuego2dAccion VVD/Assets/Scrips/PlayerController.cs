@@ -63,9 +63,10 @@ public class PlayerController : MonoBehaviour
 
 	void Start()
     {
+		_animator.SetBool("backToIdle", true);
 		//currentHealth = maxHealth;
 		//healthBar.SetMaxHealth(maxHealth);
-    }
+	}
 
 	public void hurtAnimation()
     {
@@ -129,20 +130,39 @@ public class PlayerController : MonoBehaviour
 			{
 				Flip();
 			}
+
+			else if (horizontalInput > 0f && _facingRight == true && Input.GetKeyDown(KeyCode.S))
+            {
+				_movement = Vector2.zero;
+				_animator.SetBool("backToIdle", false);
+				canMove = false;
+			}
+
+			else if (horizontalInput < 0f && _facingRight == false && Input.GetKeyDown(KeyCode.S))
+			{
+				_movement = Vector2.zero;
+				_animator.SetBool("backToIdle", false);
+				canMove = false;
+			}
+
+
+
 		}
 		// animacion para sacar shield
 		if (Input.GetKeyDown(KeyCode.S) && _isGrounded == true && _isAttacking == false && running == false)
 		{
-			canMove = false;
+			_animator.SetBool("backToIdle", false);
 			_animator.SetTrigger("shieldStart");
+			canMove = false;
 
 		}
 		if (Input.GetKeyUp(KeyCode.S) && _isGrounded == true && _isAttacking == false && running == false)
 		{
 
+			_animator.SetBool("backToIdle", true);
 			canMove = true;
-			_animator.SetTrigger("backToIdle");
 		}
+
 		// Is Grounded?
 		_isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
