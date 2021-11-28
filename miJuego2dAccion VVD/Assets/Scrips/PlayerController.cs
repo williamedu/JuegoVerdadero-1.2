@@ -72,6 +72,10 @@ public class PlayerController : MonoBehaviour
     {
 		_animator.SetTrigger("Hurt");
 	}
+	public void shieldHit()
+    {
+		_animator.SetTrigger("shieldHit");
+    }
 	public void TakeDamage (int damage)
     {
 		

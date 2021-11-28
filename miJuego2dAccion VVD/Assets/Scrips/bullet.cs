@@ -45,6 +45,8 @@ public class bullet : MonoBehaviour
         if (col.gameObject.name.Equals("shield"))
         {
             Debug.Log("shield!");
+            player.shieldHit();
+            player.useStamina();
             Destroy(gameObject);
         }
        
