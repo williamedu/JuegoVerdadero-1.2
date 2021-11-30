@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerController : MonoBehaviour
 {
 	public static PlayerController instance;
@@ -40,13 +41,15 @@ public class PlayerController : MonoBehaviour
 	//Health
 	public int maxHealth = 100;
 	public int currentHealth;
-	public HealthBar healthBar;
+	//public HealthBar healthBar;
 	//some other external items 
 	public float jumPadForceJump = 10f;
 	//messages
 	public GameObject noEnergyMessage;
-	
 
+	//shield
+	public bool shieldPressed;
+	public bool canJump;
 
 
 	// Attack
@@ -63,6 +66,8 @@ public class PlayerController : MonoBehaviour
 
 	void Start()
     {
+		canJump = true;
+		shieldPressed = false;
 		_animator.SetBool("backToIdle", true);
 		//currentHealth = maxHealth;
 		//healthBar.SetMaxHealth(maxHealth);
@@ -100,6 +105,7 @@ public class PlayerController : MonoBehaviour
 			Debug.Log("we hit" + enemy.name);
 			//enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
 			enemy.GetComponent<enemyHealth>().TakeDamage(attackDamage);
+			
 		}
 
 		
@@ -135,21 +141,37 @@ public class PlayerController : MonoBehaviour
 				Flip();
 			}
 
-			else if (horizontalInput > 0f && _facingRight == true && Input.GetKeyDown(KeyCode.S))
+			
+
+			
+
+			// para sacar shield mientras corres
+			else if (horizontalInput > 0f && _facingRight == true && _isGrounded == true && Input.GetKeyDown(KeyCode.S))
             {
 				_movement = Vector2.zero;
 				_animator.SetBool("backToIdle", false);
 				canMove = false;
 			}
 
-			else if (horizontalInput < 0f && _facingRight == false && Input.GetKeyDown(KeyCode.S))
+			else if (horizontalInput < 0f && _facingRight == false && _isGrounded == true && Input.GetKeyDown(KeyCode.S))
 			{
 				_movement = Vector2.zero;
 				_animator.SetBool("backToIdle", false);
 				canMove = false;
 			}
 
+			//para detectar si el botton de shield esta siendo presionado
+			if (Input.GetKeyDown(KeyCode.S))
+			{
+				canJump = false;
+				shieldPressed = true;
+			}
 
+			else
+			{
+				canJump = true;
+				shieldPressed = false;
+			}
 
 		}
 		// animacion para sacar shield
@@ -167,6 +189,14 @@ public class PlayerController : MonoBehaviour
 			canMove = true;
 		}
 
+		if (_isGrounded == false)
+		{
+			_animator.SetBool("backToIdle", true);
+			
+		}
+
+
+
 		// Is Grounded?
 		_isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
@@ -177,7 +207,7 @@ public class PlayerController : MonoBehaviour
 
 		}
 
-		if (Input.GetButtonDown("Jump") && _isGrounded == true && _isAttacking == false)
+		if (Input.GetButtonDown("Jump") && _isGrounded == true && _isAttacking == false && canJump == true)
 		{
 
 

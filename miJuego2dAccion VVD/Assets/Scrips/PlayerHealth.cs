@@ -14,7 +14,7 @@ public class PlayerHealth : MonoBehaviour
    public Image frontHealthBar;
    public Image backHealthBar;
 
-    private float health;
+    public float health;
     private float lerpTimer;
     public float maxHealth = 100;
     public float chipSpeed = 2f;

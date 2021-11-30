@@ -7,7 +7,7 @@ public class StaminaBar : MonoBehaviour
 {
     public GameObject noEnergy;
     public Slider staminaBar;
-    private int maxStamina = 100;
+    private int maxStamina = 50;
     private int currentStamina;
     public static StaminaBar instance;
     
