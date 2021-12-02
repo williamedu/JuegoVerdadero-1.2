@@ -6,6 +6,8 @@ using TMPro;
 
 public class enemyHealth : MonoBehaviour
 {
+    public GameObject enemyHealthGameObject;
+    public bool lifeIsLessThan100;
     //aqui nuevo codigo
     
     public Image frontHealthBar;
@@ -25,6 +27,8 @@ public class enemyHealth : MonoBehaviour
 
     private void Start()
     {
+        
+        lifeIsLessThan100 = false;
         anim = GetComponent<Animator>();
         health = maxHealth;
     }
@@ -42,6 +46,7 @@ public class enemyHealth : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
+        lifeIsLessThan100 = true;
         hurtAnimation();
         health -= damage;
         
@@ -63,6 +68,8 @@ public class enemyHealth : MonoBehaviour
             c.enabled = false;
         }
     }
+
+    
     //aqui nuevo codigo
 
     
@@ -79,6 +86,9 @@ public class enemyHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        heathActive();
+
+
         healthText.text = health.ToString();
         health = Mathf.Clamp(health, 0, maxHealth);
         UpdateHealthUI();
@@ -124,8 +134,15 @@ public class enemyHealth : MonoBehaviour
         }
 
     }
+    public void heathActive()
+    {
+        if (lifeIsLessThan100 == true)
+        {
+            enemyHealthGameObject.SetActive(true);
+            //Debug.Log("tiene menos de 100 de vida");
+        }
+    }
 
-  
     public void RestoreHealth(float healAmount)
     {
         health += healAmount;

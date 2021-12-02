@@ -134,6 +134,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91427149e6f8a53409d71cb23e7af737, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: {fileID: 0}
+  enemyHealth: {fileID: 0}
+  enemyGameOb: {fileID: 0}
+  playerHealth: {fileID: 0}
   player: {fileID: 0}
+  healthReduction: {fileID: 0}
+  hurtAnim: {fileID: 0}
+  moveSpeed: 8
+  _returning: 0
   target: {fileID: 0}

@@ -4,20 +4,26 @@ using UnityEngine;
 
 public class bullet : MonoBehaviour
 {
-    public PlayerHealth health;
+    public enemyHealth enemyHealth;
+    public GameObject enemyGameOb;
+    public PlayerHealth playerHealth;
     public PlayerController player;
     public GameObject healthReduction;
     public GameObject hurtAnim;
-    float moveSpeed = 7f;
+    public float moveSpeed = 8f;
+    public bool _returning;
 
     Rigidbody2D rb;
 
     public Transform target;
     Vector2 moveDirection;
     private void Awake()
-    {   //code to set reference of damage
+    { // code to hurt enemies in the path of bullets if this is retuning
+        enemyGameOb = GameObject.Find("barrirDisparador");
+        enemyHealth = enemyGameOb.GetComponent<enemyHealth>();
+        //code to set reference of damage
         healthReduction = GameObject.Find("MainCharacter");
-        health = healthReduction.GetComponent<PlayerHealth>();
+        playerHealth = healthReduction.GetComponent<PlayerHealth>();
         //code to set reference of hurt animation
         hurtAnim = GameObject.Find("MainCharacter");
         player = hurtAnim.GetComponent<PlayerController>();
@@ -25,6 +31,7 @@ public class bullet : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        _returning = false;
         rb = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
         moveDirection = (target.transform.position - transform.position).normalized * moveSpeed;
@@ -38,7 +45,7 @@ public class bullet : MonoBehaviour
         {
             Debug.Log("Hit!");
             Destroy(gameObject);
-            health.TakeDamage(Random.Range(15, 25));
+            playerHealth.TakeDamage(Random.Range(15, 25));
             player.hurtAnimation();
         }
 
@@ -49,7 +56,24 @@ public class bullet : MonoBehaviour
             player.useStamina();
             Destroy(gameObject);
         }
-       
+
+        if (col.CompareTag("parry"))
+        {
+          
+            rb.velocity = rb.velocity * -1;
+            _returning = true;
+            Debug.Log("se hizo un parry bacanisimo");
+            //Destroy(gameObject);
+           // moveDirection = moveDirection * -1;
+        }
+
+        if (_returning == true && col.CompareTag("enemy") )
+        {
+            enemyHealth.TakeDamage(500);
+            Debug.Log("la bala choco con un enemigo");
+            Destroy(gameObject);
+        }
     }
+
     
 }
