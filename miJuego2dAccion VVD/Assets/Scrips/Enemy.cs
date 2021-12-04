@@ -4,64 +4,38 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public int rutina;
+    // VARIABLES PARA MOVIMIENTO Y DIRRECION DEL ENEMIGO
     public float cronometro;
-    public Animator ani;
-    public int direccion;
     public float speed_walk;
     public float speed_run;
+    public int direccion;
+    public int rutina;
+    // VARIABLES QUE DETERMINAN SI ENEMIGO ESTA ATACANDO EL TARGET (JUGADOR) Y ANIMATOR
     public GameObject target;
     public bool atacando;
-
+    public Animator ani;
+    // VARIABLES QUE DETERMIANDN RANGO DE VISION Y DE ATAQUE DEL ENEMIGO
     public float rango_vision;
     public float rango_ataque;
-    public GameObject rango;
-    public GameObject Hit;
+    public GameObject rango; // GAMEOBJECT DONDE VA EL RANGO DEL ENEMIGO EN UN BOX COLLIDER(TIENE SU PROPIO SCRIPT)
+    public GameObject Hit; // / GAMEOBJECT DONDE VA EL HITBOX DEL ENEMIGO EN UN BOX COLLIDER(TIENE SU PROPIO SCRIPT)
 
-    //healt
-    //public int maxHealth = 100;
-   // int currentHealth;
-
-
-    // Start is called before the first frame update
     void Start()
     {
-        //currentHealth = maxHealth;
-        ani = GetComponent<Animator>();
-        target = GameObject.Find("MainCharacter");
+        
+        ani = GetComponent<Animator>(); //PARA REFERENCIA DEL ANIMATOR
+        target = GameObject.Find("MainCharacter"); //PARA DEFINIR TARGET AL COMIENZO DEL JUEGO
     }
-        // Update is called once per frame
+       
 
     void Update()
     {
-        Comportamientos();
+        Comportamientos(); // UPDATE DEL MOVIMIENTO DEL ENEMIGO Y RUTINA
     }
-
-    //public void TakeDamage( int damage)
-   // {
-        //currentHealth -= damage;
-
-        //hurt animation
-        //ani.SetTrigger("Hurt");
-
-       // if (currentHealth <= 0)
-       // {
-          //  Die();
-
-            
-       // }
-
-  //  }
-   // public void Die()
-    //{
-       // Debug.Log("enemy died");
-        //die animation
-        //ani.SetBool("isDead", true);
-        //disable enemy
-       // GetComponent<Collider2D>().enabled = false;
-       // this.enabled = false;
-   // }
-    public void Comportamientos()
+   
+    public void Comportamientos() // ESTE SCRIP DETERMINA EL MOVIMEINTO DEL ENEMIGO DICE SI EL ENEMIGO SE MUEVE (ALEATORIAMNETE)
+        // A LA DERECHA, IZQUIERDA O SE QUEDA PARADO, TAMBIEN DEFINE EL COMPORTAMIENTO DE CUANDO EL JUGADOR ENTRA EN CONTACTO CON EL 
+        // RANGO DE ATAQUE Y RANGO DE VISION
     {
         // si no esta en tu campo de vision
         if (Mathf.Abs(transform.position.x - target.transform.position.x) > rango_vision && !atacando)
@@ -143,17 +117,17 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void Final_Ani()
+    public void Final_Ani() //ESTA FUNCION DICTAMINA EL FINAL DEL ATAQUE DEL ENEMIGO EL CUAL VA AL FINAL DEL FRAME
     {
         ani.SetBool("attack", false);
         atacando = false;
         rango.GetComponent<BoxCollider2D>().enabled = true;
     }
-    public void ColliderWeaponTrue()
+    public void ColliderWeaponTrue() // EST AFUNCION VA AL INICIAR EL FRAME DE ATAQUE EL CUAL ACTIVA EL BOX COLLLIDER DAÒANDO AL JUGADOR
     {
         Hit.GetComponent<BoxCollider2D>().enabled = true;
     }
-    public void ColliderWeaponFalse()
+    public void ColliderWeaponFalse() // ESTA FUNCION VA AL FINAL DE LA ANIMACION DE ATAQUE EL CUAL DESACTIVA EL BOX COLLIDER DEL ENEMY HIT 
     {
         Hit.GetComponent<BoxCollider2D>().enabled = false;
     }

@@ -14257,15 +14257,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff7987668bc158f49aaa7f6e89ccf900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealthGameObject: {fileID: 843909903}
   lifeIsLessThan100: 0
-  frontHealthBar: {fileID: 1205192018}
-  backHealthBar: {fileID: 1551427399}
+  anim: {fileID: 0}
+  enemyHealthGameObject: {fileID: 843909903}
   health: 0
   maxHealth: 150
+  backHealthBar: {fileID: 1551427399}
+  frontHealthBar: {fileID: 1205192018}
   chipSpeed: 2
   healthText: {fileID: 645270893}
-  anim: {fileID: 0}
 --- !u!1 &1608588692
 GameObject:
   m_ObjectHideFlags: 0
@@ -18145,15 +18145,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff7987668bc158f49aaa7f6e89ccf900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealthGameObject: {fileID: 21367564}
   lifeIsLessThan100: 0
-  frontHealthBar: {fileID: 1779931115}
-  backHealthBar: {fileID: 1118028249}
+  anim: {fileID: 0}
+  enemyHealthGameObject: {fileID: 21367564}
   health: 0
   maxHealth: 100
+  backHealthBar: {fileID: 1118028249}
+  frontHealthBar: {fileID: 1779931115}
   chipSpeed: 2
   healthText: {fileID: 1958042619}
-  anim: {fileID: 0}
 --- !u!1 &1993413357
 GameObject:
   m_ObjectHideFlags: 0
@@ -18873,7 +18873,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7945770988181207882, guid: 012053b8a8b45b34daf5ad5744391281, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7945770988181207885, guid: 012053b8a8b45b34daf5ad5744391281, type: 3}
       propertyPath: m_BodyType

@@ -6,62 +6,52 @@ using TMPro;
 
 public class enemyHealth : MonoBehaviour
 {
-    public GameObject enemyHealthGameObject;
-    public bool lifeIsLessThan100;
-    //aqui nuevo codigo
+    public bool lifeIsLessThan100; // BOOL QUE DETERMINA SI EL ENEMIGO YA FUE ATACADO, NECESARIA PARA PARA HACER APARECER EL HEALTHBAR (SI FUE ATACADO)
     
-    public Image frontHealthBar;
-    public Image backHealthBar;
-
-    public float health;
-    private float lerpTimer;
-    public float maxHealth;
-    public float chipSpeed = 2f;
-
+    public Animator anim; // REFERENCIA ANIMATOR
+    public GameObject enemyHealthGameObject; // ESTE GAMEOBJECT ESTA APARTE EN EL HEALTH MANAGER DEL ENEMIGO MANEJA LA VIDA Y DEMAS 
+    
+    public float health; // PARA HEALTH
+    public float maxHealth; // PARA MAX HEALTH
+    public Image backHealthBar; // PARA AÒADIR BACK HEALTHB AR
+    public Image frontHealthBar; // PARA AÒADIR FRONT HEALT BAR
+    private float lerpTimer; // NECESARIO PARA EL CODIGO DE BACK HEALTH DECREASE
+    public float chipSpeed = 2f; // VELOCIDAD CON LA QUE BAJA EL BACK HEALTH DAMAGE
     [SerializeField]
-    private TextMeshProUGUI healthText;
-
-    //para animaciones
-
-    public Animator anim;
+    private TextMeshProUGUI healthText; // REFERENCIA DEL TEXT (NUMERO DE VIDA DEL ENEMIGO
 
     private void Start()
     {
         
-        lifeIsLessThan100 = false;
-        anim = GetComponent<Animator>();
-        health = maxHealth;
+        anim = GetComponent<Animator>(); // ACTIVAR EL ANIMATOR AL COMIENZO DEL JUEGO
+        lifeIsLessThan100 = false; // AL EMPEZAR SE NECEITA QUE SEA FALSO PARA QUE LA VIDA NO SE MUESTRE MAS ADELANTE
+        health = maxHealth; // DEFINIMOS HEALTH COMO BACK HEALTH 
     }
 
-    public void Die()
+    public void Die() // FUNCION PARA MUERTE DEL ENEMIGO
     {
-        Debug.Log("enemy died");
-        anim.SetBool("isDead", true);  //die animation
         GetComponent<Collider2D>().enabled = false; //disable enemy
-        //this.enabled = false;
+        anim.SetBool("isDead", true);  //die animation
     }
-    public void hurtAnimation()
+    public void hurtAnimation() // PARA LA ANIMACION DE HURT ENEMY
     {
-        anim.SetTrigger("Hurt"); //hurt animation
+        anim.SetTrigger("Hurt");
     }
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage) // FUNCION PARA DAÒAR AL ENEMIGO
     {
         lifeIsLessThan100 = true;
-        hurtAnimation();
         health -= damage;
+        hurtAnimation();
         
         
-        if (health <= 0)
-        {
+        if (health <= 0) // SI LA VIDA ES MENOR O IGUAL A 0 ENTONCES EL ENEMIGO MUERE
+        {      
             Die();
             setCollidersStatus(true);
             
         }
     }
-
-   
-
-    public void setCollidersStatus (bool active)
+    public void setCollidersStatus (bool active) // PARA DESACTIVAR TODOS LOS COLLIDERS DEL ENEMIGO 
     {
         foreach (Collider2D c in GetComponentsInChildren<Collider2D>())
         {
@@ -69,43 +59,19 @@ public class enemyHealth : MonoBehaviour
         }
     }
 
-    
-    //aqui nuevo codigo
-
-    
-
-
-    // Start is called before the first frame update
-   // void Start()
-   // {
-      //  health = maxHealth;
-
-
-   // }
-
-    // Update is called once per frame
     void Update()
     {
-        heathActive();
+        heathActive(); // HEALTHaCTIVE SE LLAMA EN UPDATE
 
-
+        // ESTAS 2 FUNCIONES HACEN QUE EL TEXT SE CONVIERTA A NUMERO PARA SER VISTO POR LA UI COMO NUMERO
         healthText.text = health.ToString();
         health = Mathf.Clamp(health, 0, maxHealth);
-        UpdateHealthUI();
 
+        UpdateHealthUI(); // SE LLAMA EN UPDATE
 
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        // TakeDamage(Random.Range(5, 10));
-       // }
-
-        //if (Input.GetKeyDown(KeyCode.F))
-        // {
-        // RestoreHealth(Random.Range(5, 10));
-        //}
     }
 
-    public void UpdateHealthUI()
+    public void UpdateHealthUI() // DEFINE EL COMPORTAMIENTO DE LA VIDA DEL ENEMIGO AL SER ATACADA
     {
         //Debug.Log(health);
         float fillF = frontHealthBar.fillAmount;
@@ -134,21 +100,23 @@ public class enemyHealth : MonoBehaviour
         }
 
     }
-    public void heathActive()
+    public void heathActive() // FUNCION PARA HACER APARECER LA VIDA SI ESTA DAÒADO EL ENEMIGO
     {
         if (lifeIsLessThan100 == true)
         {
             enemyHealthGameObject.SetActive(true);
             //Debug.Log("tiene menos de 100 de vida");
         }
-    }
 
-    public void RestoreHealth(float healAmount)
+        if (health <= 0)
+        {
+            enemyHealthGameObject.SetActive(false);
+        }
+    }
+    public void RestoreHealth(float healAmount) // RESTAURAR VIDA DE ENEMIGO, NO COMTEMPLADA POR AHORA 
     {
         health += healAmount;
-        lerpTimer = 0f;
-        //healthText.text = maxHealth.ToString();
-
+        lerpTimer = 0f;       
     }
 
 }
