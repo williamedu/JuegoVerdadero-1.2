@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
     public float rango_vision;
     public float rango_ataque;
     public GameObject rango; // GAMEOBJECT DONDE VA EL RANGO DEL ENEMIGO EN UN BOX COLLIDER(TIENE SU PROPIO SCRIPT)
-    public GameObject Hit; // / GAMEOBJECT DONDE VA EL HITBOX DEL ENEMIGO EN UN BOX COLLIDER(TIENE SU PROPIO SCRIPT)
+    public GameObject Hit;  //  GAMEOBJECT DONDE VA EL HITBOX DEL ENEMIGO EN UN BOX COLLIDER(TIENE SU PROPIO SCRIPT)
 
     void Start()
     {
