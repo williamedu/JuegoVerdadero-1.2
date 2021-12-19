@@ -5244,7 +5244,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -42.018524, y: -35.31138, z: -10.39}
+  m_LocalPosition: {x: -43.0466, y: -35.31138, z: -10.39}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -7308,7 +7308,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &843909904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14481,7 +14481,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1695712138}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -47.29645, y: -37.55, z: -10.39}
+  m_LocalPosition: {x: -47.423065, y: -37.55, z: -10.39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1222483492}
@@ -18743,7 +18743,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5117808976320176149, guid: 091e902d2f303df40908943727a50ec7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -49.399
+      value: -49.32
       objectReference: {fileID: 0}
     - target: {fileID: 5117808976320176149, guid: 091e902d2f303df40908943727a50ec7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -18958,7 +18958,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8871168871034508995, guid: 4ec61488b32349347a329b5b3b6cc5fc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -40.97
+      value: -40.91
       objectReference: {fileID: 0}
     - target: {fileID: 8871168871034508995, guid: 4ec61488b32349347a329b5b3b6cc5fc, type: 3}
       propertyPath: m_LocalPosition.y
@@ -19006,7 +19006,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8871168871034509016, guid: 4ec61488b32349347a329b5b3b6cc5fc, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8871168871034509016, guid: 4ec61488b32349347a329b5b3b6cc5fc, type: 3}
       propertyPath: m_TagString
