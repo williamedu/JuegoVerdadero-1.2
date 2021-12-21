@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
 	//public HealthBar healthBar;
 	//some other external items 
 	public float jumPadForceJump = 10f;
+	public bool interact;
 	//messages
 	public GameObject noEnergyMessage;
 
@@ -119,7 +120,16 @@ public class PlayerController : MonoBehaviour
 
 	void Update()
 	{
-		
+
+		if (Input.GetKeyDown(KeyCode.E))
+		{		
+			interact = true;
+			
+        }
+        else
+        {
+			//interact = false;
+		}
 
 		if (_isAttacking == false && canMove == true)
 		{
@@ -371,4 +381,6 @@ public class PlayerController : MonoBehaviour
     {
 		StaminaBar.instance.UseStamina(15);
 	}
+
+	
 }

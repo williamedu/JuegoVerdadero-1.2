@@ -82,7 +82,7 @@ public class StaminaBar : MonoBehaviour
         }
         else
         {
-            Debug.Log("tienes menos de 20 ");
+            
             
             //GetComponent<Animator>().SetBool("NormalEnergy", false);
              GetComponent<Animator>().SetBool("BarEffect", true);
