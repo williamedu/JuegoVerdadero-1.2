@@ -86,7 +86,7 @@ public class StaminaBar : MonoBehaviour
             
             //GetComponent<Animator>().SetBool("NormalEnergy", false);
              GetComponent<Animator>().SetBool("BarEffect", true);
-            GameObject.Find("MainCharacter").GetComponent<PlayerController>().canAttackAnim = false;
+          GameObject.Find("MainCharacter").GetComponent<PlayerController>().canAttackAnim = false;
             
             //attackDisable();
             //GameObject.Find("Sprite").GetComponent<PlayerCombat>().enabled = true;

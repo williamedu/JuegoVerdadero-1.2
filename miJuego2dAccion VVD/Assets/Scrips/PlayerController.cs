@@ -45,12 +45,14 @@ public class PlayerController : MonoBehaviour
 	//some other external items 
 	public float jumPadForceJump = 10f;
 	public bool interact;
+	public bool readyToInteract;
 	//messages
 	public GameObject noEnergyMessage;
 
 	//shield
 	public bool shieldPressed;
 	public bool canJump;
+	public bool canShield;
 
 
 	// Attack
@@ -67,6 +69,7 @@ public class PlayerController : MonoBehaviour
 
 	void Start()
     {
+		canShield = true;
 		canJump = true;
 		shieldPressed = false;
 		_animator.SetBool("backToIdle", true);
@@ -120,16 +123,16 @@ public class PlayerController : MonoBehaviour
 
 	void Update()
 	{
-
 		if (Input.GetKeyDown(KeyCode.E))
 		{		
 			interact = true;
 			
         }
-        else
+        
+		if (interact)
         {
-			//interact = false;
-		}
+			pararinteract();
+        }
 
 		if (_isAttacking == false && canMove == true)
 		{
@@ -185,14 +188,14 @@ public class PlayerController : MonoBehaviour
 
 		}
 		// animacion para sacar shield
-		if (Input.GetKeyDown(KeyCode.S) && _isGrounded == true && _isAttacking == false && running == false)
+		if (Input.GetKeyDown(KeyCode.S) && _isGrounded == true && _isAttacking == false && running == false && canShield == true)
 		{
 			_animator.SetBool("backToIdle", false);
 			_animator.SetTrigger("shieldStart");
 			canMove = false;
 
 		}
-		if (Input.GetKeyUp(KeyCode.S) && _isGrounded == true && _isAttacking == false && running == false)
+		if (Input.GetKeyUp(KeyCode.S) && _isGrounded == true && _isAttacking == false && running == false && readyToInteract == false)
 		{
 
 			_animator.SetBool("backToIdle", true);
@@ -243,7 +246,7 @@ public class PlayerController : MonoBehaviour
 
 		// Wanna Attack?
 		
-			if (Input.GetButtonDown("Fire1") && _isGrounded == true && _isAttacking == false && running == false && canAttackAnim == true)
+			if (Input.GetButtonDown("Fire1") && _isGrounded == true && _isAttacking == false && running == false && canAttackAnim == true && canMove == true)
 			{
 			//Attack();
 			
@@ -277,18 +280,18 @@ public class PlayerController : MonoBehaviour
         {
 			running = false;
         }
-
-			if (Input.GetButtonDown("Fire1") && _isGrounded == true && _isAttacking == false && running == true)
-		{;
-			Debug.Log("wooo la velocidad se aumento en 5");
-			speed = 5f;
-			_animator.SetBool("RunAttack", true);
-		}
-        else
-        {
-			speed = 5f;
-			_animator.SetBool("RunAttack", false);
-		}
+		// ***********************codigo para atacar mientras corres ************
+			//if (Input.GetButtonDown("Fire1") && _isGrounded == true && _isAttacking == false && running == true)
+		//{;
+			//Debug.Log("wooo la velocidad se aumento en 5");
+			//speed = 5f;
+			//_animator.SetBool("RunAttack", true);
+		//}
+        //else
+       // {
+			//speed = 5f;
+			//_animator.SetBool("RunAttack", false);
+		//}
         
 	}
 	
@@ -381,6 +384,33 @@ public class PlayerController : MonoBehaviour
     {
 		StaminaBar.instance.UseStamina(15);
 	}
+	IEnumerator notInteracting(float time)
+	{
+		yield return new WaitForSeconds(time);
 
-	
+		// Code to execute after the delay
+		interact = false;
+	}
+
+	public void pararinteract()
+    {
+		StartCoroutine(notInteracting(0.1f));
+    }
+
+	public void disablePlayerMovement()
+    {
+		canMove = false;
+		canJump = false;
+		canAttackAnim = false;
+		canShield = false;
+		canReceiveInput = false;
+    }
+
+	public void activatePlayerMovement()
+	{
+		canMove = true;
+		canJump = true;
+		canAttackAnim = true;
+		canShield = true;
+	}
 }

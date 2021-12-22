@@ -7,6 +7,7 @@ public class dialogueTrigger : MonoBehaviour
     public PlayerController player;
     public Dialogue dialogue;
     public bool playerInteraction;
+    public bool isCOllisioningWithDialogueTrigger;
     public void TriggerDialogue()
     {
         FindObjectOfType<dialogueManager>().startDialogue(dialogue);
@@ -23,45 +24,84 @@ public class dialogueTrigger : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Update()
+    {
+        if (player.readyToInteract == true && player.interact == true)
+        {
+            desactivateInteractBar();
+            TriggerDialogue();
+            player.disablePlayerMovement();
+            
+
+        }
+    }
+
+    public void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            isCOllisioningWithDialogueTrigger = true;
+        }
+        else
+        {
+            isCOllisioningWithDialogueTrigger = false;
+        }
+        // if (player.interact == true)
+        //{
+
+        //desactivateInteractBar();
+
+        // TriggerDialogue();
+        //  }
+
+        
+
+        
+        
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
             activateInteractBar();
+            player.readyToInteract = true;
             //TriggerDialogue();
         }
-
-        if (player.interact == true)
-        {
-
-            desactivateInteractBar();
-
-            TriggerDialogue();
-        }
-
-        if (collision.CompareTag("Player") && player.interact == true)
-        {
-            desactivateInteractBar();
-            TriggerDialogue();
-        }
-
     }
+     private void OnTriggerExit2D(Collider2D collision)
+   {
+     if (collision.CompareTag("Player"))
+     {
+            player.readyToInteract = false;
+        desactivateInteractBar();
 
-    private void OnTriggerExit2D(Collider2D collision)
+
+     }
+
+
+     }
+
+    IEnumerator ExecuteAfterTime(float time)
     {
-        if (collision.CompareTag("Player"))
-        {
-            desactivateInteractBar();
+        yield return new WaitForSeconds(time);
 
+        // Code to execute after the delay
+        Debug.Log("se desactivo interact");
 
-        }
     }
-   // private void Update()
-   // {
-       // if (player.interact == true)
-       // {
-            //desactivateInteractBar();
-           // TriggerDialogue();
-        //}
+
+    public void notInteracting()
+    {
+        Debug.Log("se desactivo interact");
+        player.interact = false;
+    }
+    // private void Update()
+    // {
+    // if (player.interact == true)
+    // {
+    //desactivateInteractBar();
+    // TriggerDialogue();
+    //}
     //}
 }

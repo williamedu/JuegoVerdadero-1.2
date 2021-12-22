@@ -8,7 +8,7 @@ public class dialogueManager : MonoBehaviour
     public Animator animator;
     public Text nameText;
     public Text dialogueText;
-
+    public  PlayerController player;
 
 
     private Queue<string> senteces;
@@ -34,6 +34,7 @@ public class dialogueManager : MonoBehaviour
         }
 
         DisplayNextSentence();
+        //Debug.Log("holaaaa se acabo la conversacion se puede mover elplayer ya ");
 
     }
     
@@ -57,10 +58,11 @@ public class dialogueManager : MonoBehaviour
             yield return null;
         }
     }
-    void EndDialogue()
+    public void EndDialogue()
     {
 
+        player.activatePlayerMovement();
         animator.SetBool("isOpen", false);
-
+        Debug.Log("se acabo la conversacion");
     }
 }

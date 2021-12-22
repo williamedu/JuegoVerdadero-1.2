@@ -13104,6 +13104,7 @@ MonoBehaviour:
     - 'debo decirte que nadie ha vuelto con vida de ese lugar. '
     - si aun quieres ir deberas hacer un salto de fe.
   playerInteraction: 0
+  isCOllisioningWithDialogueTrigger: 0
 --- !u!1 &215506938
 GameObject:
   m_ObjectHideFlags: 0
@@ -61819,6 +61820,7 @@ MonoBehaviour:
   animator: {fileID: 495234447}
   nameText: {fileID: 637021117}
   dialogueText: {fileID: 985829587}
+  player: {fileID: 1823645563}
 --- !u!4 &783935349
 Transform:
   m_ObjectHideFlags: 0
@@ -96703,9 +96705,11 @@ MonoBehaviour:
   currentHealth: 0
   jumPadForceJump: 10
   interact: 0
+  readyToInteract: 0
   noEnergyMessage: {fileID: 166966670}
   shieldPressed: 0
   canJump: 0
+  canShield: 0
   _isAttacking: 0
   attackDamage: 50
 --- !u!114 &1823645564
