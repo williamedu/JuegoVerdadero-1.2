@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour
     public float speed_run;
     public int direccion;
     public int rutina;
+    public bool lookingRight;
+    public bool itsOnTheEdge;
     // VARIABLES QUE DETERMINAN SI ENEMIGO ESTA ATACANDO EL TARGET (JUGADOR) Y ANIMATOR
     public GameObject target;
     public bool atacando;
@@ -30,6 +32,19 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+        while(itsOnTheEdge == true)
+        {
+            Debug.Log("el cabron esta en el edge");
+        }
+        if (direccion == 0)
+        {
+            lookingRight = true;
+        }
+        else
+        {
+            lookingRight = false;
+        }
+
         Comportamientos(); // UPDATE DEL MOVIMIENTO DEL ENEMIGO Y RUTINA
     }
    
@@ -117,6 +132,64 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("turnRight"))
+        {
+            Debug.Log("choco con el turnRight");
+            itsOnTheEdge = true;
+            direccion = 0;
+            turn();
+            //cancelPlayerFollow();
+        }
+
+        if (collision.CompareTag("turnLeft"))
+        {
+            Debug.Log("choco con el turnLeft");
+            itsOnTheEdge = true;
+            direccion = 1;
+           turn();
+           // cancelPlayerFollow();
+        }
+    }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("turnRight"))
+        {
+           
+            itsOnTheEdge = false;
+            
+        }
+
+        if (collision.CompareTag("turnLeft"))
+        {
+           
+            itsOnTheEdge = false;
+           
+        }
+    }
+
+    public void cancelPlayerFollow()
+    {
+        if (itsOnTheEdge == true)
+        {
+            rango_vision = 0f;
+        }
+    }
+    public void turn()
+    {
+        rango_vision = 0;
+        StartCoroutine("ExecuteAfterTime", 2f);
+    }
+    IEnumerator ExecuteAfterTime(float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        // Code to execute after the delay
+        rango_vision = 5;
+
+    }
     public void Final_Ani() //ESTA FUNCION DICTAMINA EL FINAL DEL ATAQUE DEL ENEMIGO EL CUAL VA AL FINAL DEL FRAME
     {
         ani.SetBool("attack", false);

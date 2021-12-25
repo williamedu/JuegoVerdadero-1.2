@@ -8,6 +8,9 @@ TagManager:
   - parry
   - enemy
   - NPC
+  - turn
+  - turnRight
+  - turnLeft
   layers:
   - Default
   - TransparentFX
