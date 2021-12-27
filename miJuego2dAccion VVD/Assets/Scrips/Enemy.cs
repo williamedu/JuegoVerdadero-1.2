@@ -32,10 +32,7 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        while(itsOnTheEdge == true)
-        {
-            Debug.Log("el cabron esta en el edge");
-        }
+        
         if (direccion == 0)
         {
             lookingRight = true;
@@ -53,7 +50,7 @@ public class Enemy : MonoBehaviour
         // RANGO DE ATAQUE Y RANGO DE VISION
     {
         // si no esta en tu campo de vision
-        if (Mathf.Abs(transform.position.x - target.transform.position.x) > rango_vision && !atacando)
+        if (Mathf.Abs(transform.position.x - target.transform.position.x) > rango_vision && !atacando )
         {
             ani.SetBool("run", false);
             cronometro += 1 * Time.deltaTime;
@@ -94,7 +91,7 @@ public class Enemy : MonoBehaviour
         else
         {
             // si esta en tu campo de vision
-            if (Mathf.Abs(transform.position.x - target.transform.position.x) > rango_ataque && !atacando)
+            if (Mathf.Abs(transform.position.x - target.transform.position.x) > rango_ataque && !atacando && itsOnTheEdge == false)
             {
                 if (transform.position.x < target.transform.position.x)
                 {
@@ -136,18 +133,18 @@ public class Enemy : MonoBehaviour
     {
         if (collision.CompareTag("turnRight"))
         {
-            Debug.Log("choco con el turnRight");
-            itsOnTheEdge = true;
+            rango_vision = 0;
             direccion = 0;
+            itsOnTheEdge = true;
             turn();
             //cancelPlayerFollow();
         }
 
         if (collision.CompareTag("turnLeft"))
         {
-            Debug.Log("choco con el turnLeft");
-            itsOnTheEdge = true;
+            rango_vision = 0;
             direccion = 1;
+            itsOnTheEdge = true;
            turn();
            // cancelPlayerFollow();
         }
@@ -177,9 +174,17 @@ public class Enemy : MonoBehaviour
             rango_vision = 0f;
         }
     }
+
+    public void continuePlayerFollow()
+    {
+        if (itsOnTheEdge == false)
+        {
+            rango_vision = 5f;
+        }
+    }
     public void turn()
     {
-        rango_vision = 0;
+        //rango_vision = 0;
         StartCoroutine("ExecuteAfterTime", 2f);
     }
     IEnumerator ExecuteAfterTime(float time)

@@ -17,11 +17,12 @@ public class shooterEnemy : MonoBehaviour
     public float rango_ataque;
     public GameObject rango;
     public GameObject Hit;
+    public bool itsOnTheEdge;
 
     //healt
     //public int maxHealth = 100;
     //int currentHealth;
-    
+
     // to shoot
     [SerializeField]
     GameObject bullet;
@@ -118,7 +119,7 @@ public class shooterEnemy : MonoBehaviour
         else
         {
             // si esta en tu campo de vision
-            if (Mathf.Abs(transform.position.x - target.transform.position.x) > rango_ataque && !atacando)
+            if (Mathf.Abs(transform.position.x - target.transform.position.x) > rango_ataque && !atacando && itsOnTheEdge == false)
             {
                 if (transform.position.x < target.transform.position.x)
                 {
@@ -166,6 +167,72 @@ public class shooterEnemy : MonoBehaviour
 
     }
 
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("turnRight"))
+        {
+            rango_vision = 0;
+            direccion = 0;
+            itsOnTheEdge = true;
+            turn();
+            //cancelPlayerFollow();
+        }
+
+        if (collision.CompareTag("turnLeft"))
+        {
+            rango_vision = 0;
+            direccion = 1;
+            itsOnTheEdge = true;
+            turn();
+            // cancelPlayerFollow();
+        }
+    }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("turnRight"))
+        {
+
+            itsOnTheEdge = false;
+
+        }
+
+        if (collision.CompareTag("turnLeft"))
+        {
+
+            itsOnTheEdge = false;
+
+        }
+    }
+
+    public void cancelPlayerFollow()
+    {
+        if (itsOnTheEdge == true)
+        {
+            rango_vision = 0f;
+        }
+    }
+
+    public void continuePlayerFollow()
+    {
+        if (itsOnTheEdge == false)
+        {
+            rango_vision = 5f;
+        }
+    }
+    public void turn()
+    {
+        //rango_vision = 0;
+        StartCoroutine("ExecuteAfterTime", 2f);
+    }
+    IEnumerator ExecuteAfterTime(float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        // Code to execute after the delay
+        rango_vision = 5;
+
+    }
     //no necesario para enemigos que disparan!!!
     public void Final_Ani()
     {
