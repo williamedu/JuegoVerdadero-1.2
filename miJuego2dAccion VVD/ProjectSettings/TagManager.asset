@@ -22,8 +22,8 @@ TagManager:
   - ForeGround
   - Ground
   - enemies
-  - 
-  - 
+  - enemyStop
+  - Player
   - 
   - 
   - 

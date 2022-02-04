@@ -52,7 +52,7 @@ public class rangoShooter : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             shooter.atacando = false;
-            //ani.SetBool("attack", false);
+            ani.SetBool("attack", false);
         }
         
     }

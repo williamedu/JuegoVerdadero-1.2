@@ -175,7 +175,7 @@ public class shooterEnemy : MonoBehaviour
             direccion = 0;
             itsOnTheEdge = true;
             turn();
-            //cancelPlayerFollow();
+            
         }
 
         if (collision.CompareTag("turnLeft"))
@@ -184,7 +184,7 @@ public class shooterEnemy : MonoBehaviour
             direccion = 1;
             itsOnTheEdge = true;
             turn();
-            // cancelPlayerFollow();
+            
         }
     }
 

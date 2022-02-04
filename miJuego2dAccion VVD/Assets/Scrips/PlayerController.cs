@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
 	public bool canReceiveInput;
 	public bool inputReceived;
 	public Transform AttackPoint;
-	public float AttackRange = 0.5f ;
+	public float AttackRange = 0.5f;
 	public LayerMask enemyLayers;
 	//Health
 	public int maxHealth = 100;
@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
 	}
 
 	void Start()
-    {
+	{
 		canShield = true;
 		canJump = true;
 		shieldPressed = false;
@@ -78,16 +78,16 @@ public class PlayerController : MonoBehaviour
 	}
 
 	public void hurtAnimation()
-    {
+	{
 		_animator.SetTrigger("Hurt");
 	}
 	public void shieldHit()
-    {
+	{
 		_animator.SetTrigger("shieldHit");
-    }
-	public void TakeDamage (int damage)
-    {
-		
+	}
+	public void TakeDamage(int damage)
+	{
+
 		//currentHealth -= damage;
 
 		//healthBar.SetHealth(currentHealth);
@@ -109,10 +109,10 @@ public class PlayerController : MonoBehaviour
 			Debug.Log("we hit" + enemy.name);
 			//enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
 			enemy.GetComponent<enemyHealth>().TakeDamage(attackDamage);
-			
+
 		}
 
-		
+
 	}
 	private void OnDrawGizmosSelected()
 	{
@@ -123,30 +123,32 @@ public class PlayerController : MonoBehaviour
 
 	void Update()
 	{
+		Physics2D.IgnoreLayerCollision(10, 11);
+
 		if (Input.GetKeyDown(KeyCode.E))
-		{		
+		{
 			interact = true;
-			
-        }
-        
+
+		}
+
 		if (interact)
-        {
+		{
 			pararinteract();
-        }
+		}
 
 		if (_isAttacking == false && canMove == true)
 		{
 			// Movement
 			float horizontalInput = Input.GetAxisRaw("Horizontal");
 			//float horizontalInput = joystick.Horizontal;        
-			
+
 			_movement = new Vector2(horizontalInput, 0f);
 
 
 			// Flip character
 			if (horizontalInput < 0f && _facingRight == true)
 			{
-				
+
 				Flip();
 			}
 			else if (horizontalInput > 0f && _facingRight == false)
@@ -154,13 +156,13 @@ public class PlayerController : MonoBehaviour
 				Flip();
 			}
 
-			
 
-			
+
+
 
 			// para sacar shield mientras corres
 			else if (horizontalInput > 0f && _facingRight == true && _isGrounded == true && Input.GetKeyDown(KeyCode.S))
-            {
+			{
 				_movement = Vector2.zero;
 				_animator.SetBool("backToIdle", false);
 				canMove = false;
@@ -205,7 +207,7 @@ public class PlayerController : MonoBehaviour
 		if (_isGrounded == false)
 		{
 			_animator.SetBool("backToIdle", true);
-			
+
 		}
 
 
@@ -245,24 +247,24 @@ public class PlayerController : MonoBehaviour
 
 
 		// Wanna Attack?
-		
-			if (Input.GetButtonDown("Fire1") && _isGrounded == true && _isAttacking == false && running == false && canAttackAnim == true && canMove == true)
-			{
+
+		if (Input.GetButtonDown("Fire1") && _isGrounded == true && _isAttacking == false && running == false && canAttackAnim == true && canMove == true)
+		{
 			//Attack();
-			
-				inputReceived = true;
-				canReceiveInput = false;
 
-				_movement = Vector2.zero;
-				_rigidbody.velocity = Vector2.zero;
-				//_animator.SetTrigger("Attack");
-				//Debug.Log("hola si funciona");
-				//_animator.SetBool("isAttacking", true);
-				//Debug.Log("hola este es un ataque");	
+			inputReceived = true;
+			canReceiveInput = false;
+
+			_movement = Vector2.zero;
+			_rigidbody.velocity = Vector2.zero;
+			//_animator.SetTrigger("Attack");
+			//Debug.Log("hola si funciona");
+			//_animator.SetBool("isAttacking", true);
+			//Debug.Log("hola este es un ataque");	
 
 
-			}
-			// to display no energy message
+		}
+		// to display no energy message
 
 		if (Input.GetButtonDown("Fire1") && _isGrounded == true && _isAttacking == false && running == false && canAttackAnim == false)
 		{
@@ -273,28 +275,28 @@ public class PlayerController : MonoBehaviour
 
 
 		if (_animator.GetCurrentAnimatorStateInfo(0).IsTag("Running"))
-        {
+		{
 			running = true;
-        }
-        else
-        {
+		}
+		else
+		{
 			running = false;
-        }
+		}
 		// ***********************codigo para atacar mientras corres ************
-			//if (Input.GetButtonDown("Fire1") && _isGrounded == true && _isAttacking == false && running == true)
+		//if (Input.GetButtonDown("Fire1") && _isGrounded == true && _isAttacking == false && running == true)
 		//{;
-			//Debug.Log("wooo la velocidad se aumento en 5");
-			//speed = 5f;
-			//_animator.SetBool("RunAttack", true);
+		//Debug.Log("wooo la velocidad se aumento en 5");
+		//speed = 5f;
+		//_animator.SetBool("RunAttack", true);
 		//}
-        //else
-       // {
-			//speed = 5f;
-			//_animator.SetBool("RunAttack", false);
+		//else
+		// {
+		//speed = 5f;
+		//_animator.SetBool("RunAttack", false);
 		//}
-        
+
 	}
-	
+
 	public void InputManager()
 	{
 		if (!canReceiveInput)
@@ -309,7 +311,8 @@ public class PlayerController : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		if (_isAttacking == false) {
+		if (_isAttacking == false)
+		{
 			float horizontalVelocity = _movement.normalized.x * speed;
 			_rigidbody.velocity = new Vector2(horizontalVelocity, _rigidbody.velocity.y);
 		}
@@ -323,17 +326,19 @@ public class PlayerController : MonoBehaviour
 		//_animator.SetBool("Jump", _isGrounded == false);
 
 		// Animator
-		if (_animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack")) {
+		if (_animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
+		{
 			_movement = Vector2.zero;
 			_isAttacking = true;
 
 		}
-		else {
+		else
+		{
 			_isAttacking = false;
 		}
 		if (_animator.GetCurrentAnimatorStateInfo(0).IsTag("RunAttack"))
 		{
-			
+
 			_isAttacking = true;
 
 		}
@@ -376,12 +381,12 @@ public class PlayerController : MonoBehaviour
 
 	//externernal codes for extra movement items etc
 	public void jumPadForce()
-    {
+	{
 		_rigidbody.velocity = Vector2.up * jumPadForceJump;
 	}
-	
+
 	public void useStamina()
-    {
+	{
 		StaminaBar.instance.UseStamina(15);
 	}
 	IEnumerator notInteracting(float time)
@@ -393,18 +398,18 @@ public class PlayerController : MonoBehaviour
 	}
 
 	public void pararinteract()
-    {
+	{
 		StartCoroutine(notInteracting(0.1f));
-    }
+	}
 
 	public void disablePlayerMovement()
-    {
+	{
 		canMove = false;
 		canJump = false;
 		canAttackAnim = false;
 		canShield = false;
 		canReceiveInput = false;
-    }
+	}
 
 	public void activatePlayerMovement()
 	{
@@ -413,4 +418,6 @@ public class PlayerController : MonoBehaviour
 		canAttackAnim = true;
 		canShield = true;
 	}
+
+	
 }
